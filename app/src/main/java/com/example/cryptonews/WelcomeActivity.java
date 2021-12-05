@@ -2,6 +2,7 @@ package com.example.cryptonews;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,9 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void onButtonSignUpClicked(View view) {
+
+        Intent intent = new Intent(WelcomeActivity.this,SignUpActivity.class);
+        startActivity(intent);
 
 
     }
