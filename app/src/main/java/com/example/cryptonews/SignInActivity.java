@@ -49,7 +49,7 @@ public class SignInActivity extends AppCompatActivity {
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+               // .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -76,7 +76,9 @@ public class SignInActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         Toast.makeText(SignInActivity.this,"User is already signed in",Toast.LENGTH_LONG).show();
-        //tn.setVisibility(View.GONE);
+        startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+
+        //btn.setVisibility(View.GONE);
 
     }
 /*
@@ -135,6 +137,8 @@ public class SignInActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
 
                     Toast.makeText(SignInActivity.this,"User Has Been Signed In",Toast.LENGTH_LONG).show();
+
+                    startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
                 }
                 else{
                     progressBar.setVisibility(View.GONE);
@@ -153,6 +157,8 @@ public class SignInActivity extends AppCompatActivity {
         //initialize sign in intent
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, 1000);
+        startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+
     } //end of google login
 
     // [START onactivityresult]
