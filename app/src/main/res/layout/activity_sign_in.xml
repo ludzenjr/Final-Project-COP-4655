@@ -81,7 +81,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/button_sign_in"
         android:onClick="buttonSignInScrSignInClicked"
-        android:text="Button"
+        android:text="Sign In"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
