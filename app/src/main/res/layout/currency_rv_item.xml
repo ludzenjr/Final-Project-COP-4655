@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/idCVCurrency"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -20,7 +21,10 @@
             android:id="@+id/idTVSymbol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_toStartOf="@id/idTVRate"
             android:layout_toLeftOf="@id/idTVRate"
             android:padding="3dp"
@@ -31,7 +35,7 @@
         <!--text view for displaying currency name-->
         <TextView
             android:id="@+id/idTVName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/idTVSymbol"
             android:layout_margin="2dp"
@@ -57,6 +61,20 @@
             android:text="123456"
             android:textColor="@color/white" />
 
+        <Button
+            android:id="@+id/favBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/ic_favorite_red"
+            app:backgroundTint="@null"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="18dp"/>
+
+
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>

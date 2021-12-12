@@ -2,5 +2,6 @@
     <string name="app_name">Crypto News</string>
     <string name="Drawer_Open">Open</string>
     <string name="Drawer_closed">Closed</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>
