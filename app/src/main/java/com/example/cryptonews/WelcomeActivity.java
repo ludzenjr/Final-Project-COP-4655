@@ -38,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken("262929111814-n19c4pedegms5dl1mmuv6hdsmu21b68l.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -74,6 +74,8 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         //
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
 
     }
 

@@ -58,6 +58,10 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 startActivity(new Intent(this,DashboardActivity.class));
                 overridePendingTransition(0,0);
                 break;
+            case R.id.profile:
+                startActivity(new Intent(this,ProfileActivity.class));
+                overridePendingTransition(0,0);
+                break;
         }
         return false;
     }

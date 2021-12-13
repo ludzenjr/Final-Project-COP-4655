@@ -3,6 +3,7 @@ package com.example.cryptonews;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -78,6 +79,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Toast.makeText(SignUpActivity.this,"Registration Completed",Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
+                                        startActivity(new Intent(SignUpActivity.this, DashboardActivity.class));
+
                                     }
                                     else{
                                         Toast.makeText(SignUpActivity.this,"Registration Failed",Toast.LENGTH_LONG).show();

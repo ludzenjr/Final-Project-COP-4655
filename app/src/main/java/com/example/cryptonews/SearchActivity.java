@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableWrapper;
 import android.os.Bundle;
 import android.text.Editable;
@@ -110,7 +111,15 @@ public class SearchActivity extends DrawerBaseActivity {
                 filter(s.toString());
             }
         });
+/*
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Drawable color = button.getBackground();
 
+                button.setBackgroundResource(R.drawable.ic_favorite_red);
+            }
+        });*/
 
     }
 
@@ -170,11 +179,12 @@ public class SearchActivity extends DrawerBaseActivity {
                         JSONObject USD = quote.getJSONObject("USD");
                         double price = USD.getDouble("price");
                         // adding all data to our array list.
-                        currencyModalArrayList.add(new CurrencyModal(name, symbol, price));
+                        currencyModalArrayList.add(new CurrencyModal(name, symbol, price, button));
 
                     }
                     // notifying adapter on data change.
                     currencyRVAdapter.notifyDataSetChanged();
+
                 } catch (JSONException e) {
                     // handling json exception.
                     e.printStackTrace();
@@ -205,13 +215,6 @@ public class SearchActivity extends DrawerBaseActivity {
 
     }
 
-    public void favButtonClick(){
-        FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-
-
-    }
 
 
 

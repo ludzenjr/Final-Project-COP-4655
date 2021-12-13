@@ -48,7 +48,7 @@ public class SignInActivity extends AppCompatActivity {
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken("262929111814-n19c4pedegms5dl1mmuv6hdsmu21b68l.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -77,7 +77,10 @@ public class SignInActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
+
+
 
     private void updateUI(GoogleSignInAccount currentUser) {
         Toast.makeText(SignInActivity.this,"User is already signed in",Toast.LENGTH_LONG).show();

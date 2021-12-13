@@ -62,6 +62,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
         holder.nameTV.setText(modal.getName());
         holder.rateTV.setText("$ " + df2.format(modal.getPrice()));
         holder.symbolTV.setText(modal.getSymbol());
+
     }
 
     @Override
@@ -83,6 +84,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
             symbolTV = itemView.findViewById(R.id.idTVSymbol);
             rateTV = itemView.findViewById(R.id.idTVRate);
             nameTV = itemView.findViewById(R.id.idTVName);
+            button = itemView.findViewById(R.id.favBtn);
         }
     }
 }
