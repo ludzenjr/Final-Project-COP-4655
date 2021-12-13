@@ -4,10 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -16,6 +20,13 @@ import java.util.ArrayList;
 // in this class we are passing our array list
 // and our View Holder class which we have created.
 public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.CurrencyViewholder> {
+    Button button;
+    DatabaseReference favoriteref;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
+
+
+
     private static DecimalFormat df2 = new DecimalFormat("#.##");
     private ArrayList<CurrencyModal> currencyModals;
     private Context context;

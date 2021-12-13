@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,6 +22,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.cryptonews.databinding.ActivitySearchBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +37,15 @@ import java.util.Map;
 public class SearchActivity extends DrawerBaseActivity {
 
 
+
+    DatabaseReference fvrtref, fvrt_listRef;
+    Boolean fvrtChecker = false;
+    Button button;
+    FavClass helper;
+    DatabaseReference db;
+    CurrencyRVAdapter adapter;
+    RecyclerView rv;
+    TextView symbol, name, price;
     // creating variable for recycler view,
     // adapter, array list, progress bar
     protected RecyclerView currencyRV;
@@ -48,6 +62,15 @@ public class SearchActivity extends DrawerBaseActivity {
         setContentView(activitySearchBinding.getRoot());
         allocateActivityTitle("Search");
 
+        //Initialize Recycle View
+        rv = (RecyclerView) findViewById(R.id.idRVcurrency);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        //Initialize Firebase
+        db= FirebaseDatabase.getInstance().getReference();
+        helper=new FavClass(db);
+
+
+        button = findViewById(R.id.favBtn);
         // initializing all our variables and array list.
         loadingPB = findViewById(R.id.idPBLoading);
         currencyRV = findViewById(R.id.idRVcurrency);
@@ -89,6 +112,13 @@ public class SearchActivity extends DrawerBaseActivity {
         });
 
 
+    }
+
+    private void saveToFav(String symbol, String name, double price) {
+        String nSymbol = symbol;
+        String nName = name;
+        double nPrice = price;
+        Toast.makeText(SearchActivity.this,"Save button works",Toast.LENGTH_SHORT).show();
     }
 
     private void filter(String filter) {
@@ -141,6 +171,7 @@ public class SearchActivity extends DrawerBaseActivity {
                         double price = USD.getDouble("price");
                         // adding all data to our array list.
                         currencyModalArrayList.add(new CurrencyModal(name, symbol, price));
+
                     }
                     // notifying adapter on data change.
                     currencyRVAdapter.notifyDataSetChanged();
@@ -170,7 +201,18 @@ public class SearchActivity extends DrawerBaseActivity {
         // calling a method to add our
         // json object request to our queue.
         queue.add(jsonObjectRequest);
+
+
     }
+
+    public void favButtonClick(){
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+
+
+    }
+
 
 
 }
